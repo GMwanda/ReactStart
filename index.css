@@ -395,3 +395,141 @@ body {
 .event:hover::after {
     display: flex;
 }
+
+.add-event-wrapper {
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    width: 90%;
+    overflow: hidden;
+    max-height: 0;
+    border-radius: 5px;
+    background: var(--white-clr);
+    transform: translateX(-50%);
+    transition: max-height 0.5s;
+}
+
+.add-event-wrapper.active {
+    max-height: 300px;
+}
+
+.add-event-header {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    color: var(--black-clr);
+    border-bottom: 1px solid var(--secondary-clr2);
+}
+
+.add-event-header .bx-x {
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.add-event-header .bx-x:hover {
+    color: var(--primary-clr);
+}
+
+.add-event-header .title {
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.add-event-body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 20px;
+}
+
+.add-event-body .add-event-input {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.add-event-body .add-event-input input {
+    width: 100%;
+    height: 100%;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid var(--black-clr);
+    padding: 0 10px;
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--primary-clr);
+}
+
+.add-event-body .add-event-input input::placeholder {
+    color: var(--secondary-clr1);
+    text-transform: uppercase;
+}
+
+.add-event-body .add-event-input input:focus {
+    border-color: var(--black-clr);
+}
+
+.add-event-body .add-event-input input:focus::placeholder {
+    color: var(--secondary-clr1);
+}
+
+.add-event-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+
+}
+
+.add-event-btn {
+    height: 40px;
+    font-size: 1rem;
+    font-weight: 500;
+    outline: none;
+    border: none;
+    color: var(--secondary-clr2);
+    background-color: var(--primary-clr);
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px 10px;
+    border: 1px solid var(--primary-clr);
+}
+
+.add-event-btn:hover {
+    color: var(--primary-clr);
+    background-color: var(--secondary-clr2);
+}
+
+.add-event {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    color: var(--secondary-clr3);
+    border: 2px solid var(--secondary-clr3);
+    opacity: 0.5;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.add-event:hover {
+    opacity: 1;
+}
+
+.add-event i {
+    pointer-events: none;
+}

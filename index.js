@@ -17,6 +17,24 @@ const months = [
     "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December",
 ];
 
+const eventsArr = [
+    {
+        day: 22,
+        month: 2,
+        year: 2011,
+        events: [
+            {
+                title: "Lorem ipsum dolor sit amet, consectetur adip",
+                time: "10:00 AM"
+            },
+            {
+                title: "Dolor ipsum dolor sit amet, consect",
+                time: "10:00 PM"
+            },
+        ],
+    },
+];
+
 // Function to add days
 
 function initCalendar() {
@@ -118,7 +136,7 @@ function gotoDate() {
 
     if (dateArr.length === 2) {
         if (dateArr[0] > 0 && dateArr[0] < 13 && dateArr[1].length === 4) {
-            month === dateArr[0] - 1; 
+            month === dateArr[0] - 1;
             year = dateArr[1];
             initCalendar();
             return;
@@ -127,3 +145,49 @@ function gotoDate() {
 
     alert("Invalid date");
 }
+
+const addEventBtn = document.querySelector(".add-event"),
+    addEventContainer = document.querySelector(".add-event-wrapper"),
+    addEventCloseBtn = document.querySelector(".bx-x"),
+    addEventTitle = document.querySelector(".event-name"),
+    addEventFrom = document.querySelector(".event-name-from"),
+    addEventTo = document.querySelector(".event-name-to");
+
+addEventBtn.addEventListener("click", () => {
+    addEventContainer.classList.toggle("active");
+});
+addEventCloseBtn.addEventListener("click", () => {
+    addEventContainer.classList.remove("active");
+});
+
+document.addEventListener("click", (e) => {
+    if (e.target != addEventBtn && !addEventContainer.contains(e.target)) {
+        addEventContainer.classList.remove("active");
+    }
+});
+
+addEventTitle.addEventListener("input", (e) => {
+    addEventTitle.value = addEventTitle.value.slice(0, 50)
+});
+
+addEventFrom.addEventListener("input", (e) => {
+    // remove anything else numbers
+    addEventFrom.value = addEventFrom.value.replace(/[^0-9:]/g, "");
+    if (addEventFrom.value.length === 2) {
+        addEventFrom.value += ":";
+    }
+    if (addEventFrom.value.length > 5) {
+        addEventFrom.value = addEventFrom.value.slice(0, 5);
+    }
+});
+
+addEventTo.addEventListener("input", (e) => {
+    // remove anything else numbers
+    addEventTo.value = addEventTo.value.replace(/[^0-9:]/g, "");
+    if (addEventTo.value.length === 2) {
+        addEventTo.value += ":";
+    }
+    if (addEventTo.value.length > 5) {
+        addEventTo.value = addEventTo.value.slice(0, 5);
+    }
+});
